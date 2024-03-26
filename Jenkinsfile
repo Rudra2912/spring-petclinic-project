@@ -28,6 +28,10 @@ pipeline {
                 }
              }
         }
-
+        stage('Docker Build') { 
+            steps {
+                bat 'docker build -t ravishrawat/petclinic:latest .'
+            }
+        }
     }
 }
