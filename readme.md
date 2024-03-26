@@ -62,6 +62,8 @@ It will be up and running in some time.
 6)	Once the project runs with SonarQube, it will show these results
 ![Screenshot 2024-03-25 213729](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/8d5989e2-1e55-411a-957e-d6b31517e791)
 
+7) If there are vulnerabilities in the docker image, the build will fail because of SNYK took and it will look like this
+![Screenshot 2024-03-27 005046](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/ffe7db46-68af-4944-a776-b4d71ea43dd0)
 
 ## Jenkinsfile Explanation
 
