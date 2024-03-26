@@ -33,9 +33,14 @@ pipeline {
                 bat 'docker build -t ravishrawat/petclinic:latest .'
             }
         }
+        stage ('DockerHub Push'){
+            steps {
+                echo "Docker Login and Push Placeholder"
+            }
+        }
         stage ('Pushing to Artifactory'){
             steps {
-                echo "Pushing"
+                echo "Artifactory Placeholder"
             }
         }
     }
