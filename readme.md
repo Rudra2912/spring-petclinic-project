@@ -22,13 +22,23 @@ There are 2 ways in which this project can be up and running
 ## Method 1 – Local Setup
 
 1)	Clone the repo in your local machine
+```bash
+https://github.com/logicopslab/spring-petclinic-project.git
+```
 2)	Go inside spring-petclinic-project folder
-3)	Open a command prompt with the same location and run mvn package
+```bash
+spring-petclinic-project
+```
+3)	Open a command prompt with the same location and run
+```bash
+mvn package
+```
 4)	Once successful it will produce a jar file
- 
-
-8)	Run it by java -jar spring-petclinic-3.2.0-SNAPSHOT.jar
-It will be up and running in some time
+5)	Run it by 
+```bash
+java -jar spring-petclinic-3.2.0-SNAPSHOT.jar
+```
+It will be up and running in some time.
 
 ## Method 2 – Using Jenkins
 1)	Install Jenkins, do the basic setup, once it is up and running.
