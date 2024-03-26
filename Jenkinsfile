@@ -21,7 +21,13 @@ pipeline {
                 bat 'mvn test'
             }
         }
-
+        stage ('Code Quality'){
+            steps {
+                withSonarQubeEnv('SonarQube Server') {
+                bat 'mvn sonar:sonar'
+                }
+             }
+        }
 
     }
 }
