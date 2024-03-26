@@ -33,5 +33,10 @@ pipeline {
                 bat 'docker build -t ravishrawat/petclinic:latest .'
             }
         }
+        stage ('Pushing to Artifactory'){
+            steps {
+                echo "Pushing"
+            }
+        }
     }
 }
