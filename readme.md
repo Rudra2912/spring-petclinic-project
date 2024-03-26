@@ -138,7 +138,11 @@ CMD ["./mvnw", "spring-boot:run"]
 2)	Jenkins (In Blue Ocean Plugin)
 ![Screenshot 2024-03-26 225932](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/f8378a90-767b-43e6-b236-f69c9bf3f43b)
 
-
 3)	SonarQube
 ![Screenshot 2024-03-26 230152](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/221ac697-2fe7-476e-af6a-25ade4951e27)
+
+4) DockerHub
+   
+![Screenshot 2024-03-26 230747](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/4be245de-e474-4973-a2e9-dc44b171917f)
+
 
