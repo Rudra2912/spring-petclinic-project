@@ -12,6 +12,7 @@
 6)	[Docker Desktop](https://www.docker.com/products/docker-desktop/)
 7)	[VS Code](https://code.visualstudio.com/)
 8)  [Snyk](https://app.snyk.io/)
+9)  [JFrog](https://jfrog.com/download-jfrog-platform/)
    
 ## Steps to run the project
 
