@@ -1,27 +1,25 @@
-Project Documentation - PetClinic
+# Project Documentation - PetClinic
 
-Setup Guide
+## Setup Guide
 
-Pre requisites
+### Pre requisites
 
-1)	Git (https://git-scm.com/)
-2)	Java 17 (https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-3)	Maven 3.9.6 (https://maven.apache.org/download.cgi)
-4)	Jenkins (https://www.jenkins.io/download)
-5)	Sonar installed (https://www.sonarsource.com/products/sonarqube/downloads/
-Version – Community. SetUp on - http://localhost:9000/
-Start from C:\Installers\sonarqube-10.4.1.88267\bin\windows-x86-64
-6)	Docker installed ()
-7)	Code IDE – VS Code
+1)	[Git](https://git-scm.com/)
+2)	[Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+3)	[Maven 3.9.6](https://maven.apache.org/download.cgi)
+4)	[Jenkins](https://www.jenkins.io/download)
+5)	[SonarQube](https://www.sonarsource.com/products/sonarqube/downloads/) 
+6)	[Docker Desktop](https://www.docker.com/products/docker-desktop/)
+7)	[VS Code](https://code.visualstudio.com/)
    
-Steps to run the project
+## Steps to run the project
 
 There are 2 ways in which this project can be up and running
 
-1)	Local setup
+1)	Local Setup
 2)	Using Jenkins
    
-Method 1 – Local setup
+## Method 1 – Local Setup
 
 1)	Clone the repo in your local machine
 2)	Go inside spring-petclinic-project folder
@@ -32,7 +30,7 @@ Method 1 – Local setup
 8)	Run it by java -jar spring-petclinic-3.2.0-SNAPSHOT.jar
 It will be up and running in some time
 
-Method 2 – Using Jenkins
+## Method 2 – Using Jenkins
 1)	Install Jenkins, do the basic setup, once it is up and running.
 2)	Create a new pipeline, use Jenkinsfile
 
@@ -44,7 +42,7 @@ Once it is up and running, kick off the build in Jenkins.
 5)	Make sure the build is passed.
 6)	Once the project runs with SonarQube, it will show these results
 
-Jenkinsfile explanation
+## Jenkinsfile explanation
 
 Link - https://github.com/logicopslab/spring-petclinic-project/blob/main/Jenkinsfile
 
@@ -60,18 +58,60 @@ It then tries to run mvn sonar:sonar with a bat command, which is used for code 
 7.	Pushing to Artifactory (Placeholder – Working on it):
 Similar to the previous stage, this is a placeholder with an echo statement "Pushing". This suggests the pipeline might eventually deploy the built artifact to a repository like Artifactory.
 
-Dockerfile explanation
+## Dockerfile
 
-1)	FROM openjdk:17-jdk-alpine: This line specifies the base image to use for the new image. In this case, it uses the OpenJDK 17 image based on Alpine Linux, which is a lightweight Linux distribution.
-2)	WORKDIR /app: Sets the working directory inside the container to /app. This is the directory where subsequent commands will be executed.
-3)	COPY .mvn/ .mvn: Copies the .mvn/ directory from the host (the directory where the Dockerfile is located) to the /app/.mvn/ directory inside the container. This directory likely contains Maven wrapper files.
-4)	COPY mvnw pom.xml ./: Copies the mvnw Maven wrapper and pom.xml file from the host to the /app/ directory inside the container. The pom.xml file contains the project's Maven configuration.
-5)	RUN ./mvnw dependency:resolve: Executes the Maven wrapper (mvnw) inside the container to resolve project dependencies. This step ensures that all necessary dependencies are downloaded and available for the build process.
-6)	COPY src ./src: Copies the src/ directory (containing the source code of the application) from the host to the /app/src/ directory inside the container.
-7)	CMD ["./mvnw", "spring-boot:run"]: Specifies the default command to run when the container starts. In this case, it uses the Maven wrapper (mvnw) to run the Spring Boot application (spring-boot:run), which starts the Spring Boot application inside the container.
+```bash
+# Dockerfile
 
-Final Results
+FROM openjdk:17-jdk-alpine
+WORKDIR /app
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:resolve
+COPY src ./src
+CMD ["./mvnw", "spring-boot:run"]
+```
 
-1)	 Docker
+## Explanation
+
+```bash
+FROM openjdk:17-jdk-alpine
+```
+1) This line specifies the base image to use for the new image. In this case, it uses the OpenJDK 17 image based on Alpine Linux, which is a lightweight Linux distribution.
+
+```bash
+WORKDIR /app
+```
+2) Sets the working directory inside the container to /app. This is the directory where subsequent commands will be executed.
+
+```bash
+COPY .mvn/ .mvn
+```
+3) Copies the .mvn/ directory from the host (the directory where the Dockerfile is located) to the /app/.mvn/ directory inside the container. This directory likely contains Maven wrapper files.
+
+```
+COPY mvnw pom.xml ./
+```
+
+4)	Copies the mvnw Maven wrapper and pom.xml file from the host to the /app/ directory inside the container. The pom.xml file contains the project's Maven configuration.
+
+```bash
+RUN ./mvnw dependency:resolve
+```
+5) Executes the Maven wrapper (mvnw) inside the container to resolve project dependencies. This step ensures that all necessary dependencies are downloaded and available for the build process.
+
+```bash
+COPY src ./src
+```
+6) Copies the src/ directory (containing the source code of the application) from the host to the /app/src/ directory inside the container.
+
+```bash
+CMD ["./mvnw", "spring-boot:run"]
+```
+7) Specifies the default command to run when the container starts. In this case, it uses the Maven wrapper (mvnw) to run the Spring Boot application (spring-boot:run), which starts the Spring Boot application inside the container.
+
+## Final Results
+
+1)	Docker
 2)	Jenkins
 3)	SonarQube
