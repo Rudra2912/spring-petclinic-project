@@ -11,8 +11,8 @@
 5)	[SonarQube](https://www.sonarsource.com/products/sonarqube/downloads/) 
 6)	[Docker Desktop](https://www.docker.com/products/docker-desktop/)
 7)	[VS Code](https://code.visualstudio.com/)
-8)  [Snyk](https://app.snyk.io/)
-9)  [JFrog](https://jfrog.com/download-jfrog-platform/)
+8) [Snyk](https://app.snyk.io/)
+9) [JFrog](https://jfrog.com/download-jfrog-platform/)
    
 ## Steps to run the project
 
@@ -150,7 +150,13 @@ CMD ["./mvnw", "spring-boot:run"]
 ![Screenshot 2024-03-27 004140](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/1905e983-6591-4860-b349-eae40323afdd)
 
 5) DockerHub
-   
 ![Screenshot 2024-03-26 230747](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/4be245de-e474-4973-a2e9-dc44b171917f)
 
+# Bonus - JFrog
 
+Follow these steps for a quick setup:
+
+1) Download and install Jfrog from [here](https://jfrog.com/download-jfrog-platform/)
+2) Request a 30 days license from JFrog.
+3) Goto **JFrog****\app\bin** folder and start **artifactory.bat**
+4) Once it gets started, setup a new username and password.
