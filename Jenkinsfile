@@ -33,6 +33,12 @@ pipeline {
                 bat 'docker build -t ravishrawat/petclinic:latest .'
             }
         }
+        stage('Docker Image Vulnerability Scan') { 
+            steps {
+                // this would be done by using SNYK
+                snykSecurity additionalArguments: '--docker ravishrawat/petclinic', snykInstallation: 'Snyk', snykTokenId: 'Snyk-Jenkins', targetFile: 'Dockerfile'
+            }
+        }
         stage ('DockerHub Push'){
             steps {
                 echo "Docker Login and Push Placeholder"
