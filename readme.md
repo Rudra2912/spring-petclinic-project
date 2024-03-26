@@ -67,18 +67,18 @@ It will be up and running in some time.
 
 Link - https://github.com/logicopslab/spring-petclinic-project/blob/main/Jenkinsfile
 
-1.	Code Checkout:This stage uses the git command to clone the code from the main branch of the https://github.com/logicopslab/spring-petclinic-project.git repository.
-2.	Clean and Install:This stage sets up the environment for Maven by defining the MAVEN_HOME variable pointing to the Maven installation directory (C:/Installers/apache-maven-3.9.6). 
+1.	**Code Checkout:** This stage uses the git command to clone the code from the main branch of the https://github.com/logicopslab/spring-petclinic-project.git repository.
+2.	**Clean and Install:** This stage sets up the environment for Maven by defining the MAVEN_HOME variable pointing to the Maven installation directory (C:/Installers/apache-maven-3.9.6). 
 It then updates the system path (PATH) to include the Maven binaries.
 Finally, it uses a bat command (for Windows batch script execution) to run mvn clean install. This cleans any previously built artifacts and installs the project's dependencies.
-3.	Build: This stage simply runs mvn package using a bat command. This packages the application into a distributable artifact (e.g., JAR file).
-4.	Run Tests: This stage executes the tests using mvn test through a bat command. This verifies the functionality of the application.
-5.	Code Quality (SonarQube): It defines a step using the withSonarQubeEnv function to connect to a SonarQube server named "SonarQube Server".
+3.	**Build:** This stage simply runs mvn package using a bat command. This packages the application into a distributable artifact (e.g., JAR file).
+4.	**Run Tests:** This stage executes the tests using mvn test through a bat command. This verifies the functionality of the application.
+5.	**Code Quality**: It defines a step using the withSonarQubeEnv function to connect to a SonarQube server named "SonarQube Server".
 It then tries to run mvn sonar:sonar with a bat command, which is used for code quality analysis with SonarQube.
-6.	Docker Build : Explained separately below
-7.  Docker Image Vulnerability Scan - Using SNYK vulnerability scanner to scan the Docker images.
-8.	Pushing to Artifactory (Placeholder – Working on it):
-Similar to the previous stage, this is a placeholder with an echo statement "Pushing". This suggests the pipeline might eventually deploy the built artifact to a repository like Artifactory.
+6.	**Docker Build**: Explained separately below
+7. **Docker Image Vulnerability Scan**: Using SNYK vulnerability scanner to scan the Docker images.
+8.	**DockerHub Push**: Place Holder for now
+9. **Pushing to Artifactory**: This is also a placeholder with an echo statement "Pushing". This suggests the pipeline might eventually deploy the built artifact to a repository like Artifactory.
 
 ## Dockerfile
 
@@ -144,7 +144,7 @@ CMD ["./mvnw", "spring-boot:run"]
 ![Screenshot 2024-03-26 230152](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/221ac697-2fe7-476e-af6a-25ade4951e27)
 
 4) Snyk
-
+![Screenshot 2024-03-27 004140](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/1905e983-6591-4860-b349-eae40323afdd)
 
 5) DockerHub
    
