@@ -11,6 +11,7 @@
 5)	[SonarQube](https://www.sonarsource.com/products/sonarqube/downloads/) 
 6)	[Docker Desktop](https://www.docker.com/products/docker-desktop/)
 7)	[VS Code](https://code.visualstudio.com/)
+8)  [Snyk](https://app.snyk.io/)
    
 ## Steps to run the project
 
@@ -62,7 +63,7 @@ It will be up and running in some time.
 ![Screenshot 2024-03-25 213729](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/8d5989e2-1e55-411a-957e-d6b31517e791)
 
 
-## Jenkinsfile explanation
+## Jenkinsfile Explanation
 
 Link - https://github.com/logicopslab/spring-petclinic-project/blob/main/Jenkinsfile
 
@@ -74,8 +75,9 @@ Finally, it uses a bat command (for Windows batch script execution) to run mvn c
 4.	Run Tests: This stage executes the tests using mvn test through a bat command. This verifies the functionality of the application.
 5.	Code Quality (SonarQube): It defines a step using the withSonarQubeEnv function to connect to a SonarQube server named "SonarQube Server".
 It then tries to run mvn sonar:sonar with a bat command, which is used for code quality analysis with SonarQube.
-6.	Dockerizing (Placeholder – Working on it): Explained Separately
-7.	Pushing to Artifactory (Placeholder – Working on it):
+6.	Docker Build : Explained separately below
+7.  Docker Image Vulnerability Scan - Using SNYK vulnerability scanner to scan the Docker images.
+8.	Pushing to Artifactory (Placeholder – Working on it):
 Similar to the previous stage, this is a placeholder with an echo statement "Pushing". This suggests the pipeline might eventually deploy the built artifact to a repository like Artifactory.
 
 ## Dockerfile
@@ -141,7 +143,10 @@ CMD ["./mvnw", "spring-boot:run"]
 3)	SonarQube
 ![Screenshot 2024-03-26 230152](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/221ac697-2fe7-476e-af6a-25ade4951e27)
 
-4) DockerHub
+4) Snyk
+
+
+5) DockerHub
    
 ![Screenshot 2024-03-26 230747](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/4be245de-e474-4973-a2e9-dc44b171917f)
 
