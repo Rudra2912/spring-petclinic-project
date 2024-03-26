@@ -34,23 +34,33 @@ spring-petclinic-project
 mvn package
 ```
 4)	Once successful it will produce a jar file
-5)	Run it by 
+
+![Screenshot 2024-03-25 211216](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/583d3450-81d0-46a6-a53b-e2efb0689674)
+
+6)	Run it by 
 ```bash
 java -jar spring-petclinic-3.2.0-SNAPSHOT.jar
 ```
 It will be up and running in some time.
 
+![Screenshot 2024-03-25 211452](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/39485d22-3a5b-4140-aa39-934ac284f6f6)
+
 ## Method 2 – Using Jenkins
 1)	Install Jenkins, do the basic setup, once it is up and running.
-2)	Create a new pipeline, use Jenkinsfile
+2)	Create a new pipeline, use [Jenkinsfile](https://github.com/logicopslab/spring-petclinic-project/blob/main/Jenkinsfile)
 
-https://github.com/logicopslab/spring-petclinic-project/blob/main/Jenkinsfile
+![Screenshot 2024-03-25 211703](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/9e4fd2d5-bd05-4bcd-8cb0-5e6deed9accf)
 
 3)	Install Docker desktop
-4)	Install SonarQube, do the basic setup. Run it on unused port.
-Once it is up and running, kick off the build in Jenkins.
+   
+4)	Install SonarQube, do the basic setup. Run it on unused port. Once it is up and running, kick off the build in Jenkins.
+
 5)	Make sure the build is passed.
+![Screenshot 2024-03-26 225820](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/5df6a97e-0f36-45d9-ab1a-0e17647aec55)
+
 6)	Once the project runs with SonarQube, it will show these results
+![Screenshot 2024-03-25 213729](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/8d5989e2-1e55-411a-957e-d6b31517e791)
+
 
 ## Jenkinsfile explanation
 
@@ -123,5 +133,12 @@ CMD ["./mvnw", "spring-boot:run"]
 ## Final Results
 
 1)	Docker
-2)	Jenkins
+![Screenshot 2024-03-25 213335](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/18246cdb-19c9-49c9-a8c5-fa6b16a31aed)
+
+2)	Jenkins (In Blue Ocean Plugin)
+![Screenshot 2024-03-26 225932](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/f8378a90-767b-43e6-b236-f69c9bf3f43b)
+
+
 3)	SonarQube
+![Screenshot 2024-03-26 230152](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/221ac697-2fe7-476e-af6a-25ade4951e27)
+
