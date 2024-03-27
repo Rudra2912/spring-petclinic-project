@@ -152,6 +152,9 @@ CMD ["./mvnw", "spring-boot:run"]
 5) DockerHub
 ![Screenshot 2024-03-26 230747](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/4be245de-e474-4973-a2e9-dc44b171917f)
 
+6) JFrog
+![Screenshot 2024-03-27 195954](https://github.com/logicopslab/spring-petclinic-project/assets/82759985/b7c7b3cc-e708-41b1-9670-661516403cfd)
+
 # Bonus - JFrog
 
 Follow these steps for a quick setup:
@@ -160,3 +163,4 @@ Follow these steps for a quick setup:
 2) Request a 30 days license from JFrog.
 3) Goto **JFrog****\app\bin** folder and start **artifactory.bat**
 4) Once it gets started, setup a new username and password.
+
