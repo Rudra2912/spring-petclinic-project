@@ -28,6 +28,44 @@ pipeline {
                 }
              }
         }
+
+        stage('JFrog') {
+            steps {
+                    withCredentials([usernamePassword(credentialsId: 'JFrog_Artifactory_Credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                        rtServer (
+                            id: "Artifactory",
+                            url: 'http://localhost:8082/artifactory',
+                            username: USERNAME,
+                            password: PASSWORD,
+                            bypassProxy: true,
+                            timeout: 300
+                        )
+                    }
+                }
+            }
+        stage('Artifact Upload'){
+            steps{
+                    rtUpload (
+                     serverId:"Artifactory" ,
+                      spec: '''{
+                       "files": [
+                          {
+                          "pattern": "*.jar",
+                          "target": "petclinic"
+                          }
+                                ]
+                               }''',
+                            )
+                }
+            }
+        stage ('Publish build info') {
+            steps {
+                    rtPublishBuildInfo (
+                        serverId: "Artifactory"
+                    )
+                }
+            }        
+
         stage('Docker Build') { 
             steps {
                 bat 'docker build -t ravishrawat/petclinic:latest .'
@@ -42,11 +80,6 @@ pipeline {
         stage ('DockerHub Push'){
             steps {
                 echo "Docker Login and Push Placeholder"
-            }
-        }
-        stage ('Pushing to Artifactory'){
-            steps {
-                echo "Artifactory Placeholder"
             }
         }
     }
