@@ -126,7 +126,17 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage ('Code Quality'){
+        //stage ('Code Quality on server'){
+        //    steps {
+        //        withSonarQubeEnv('sonar'){
+        //           sh ''' mvn clean verify sonar:sonar -Dsonar.projectName=Rudra_Spring_proj \
+        //           -Dsonar.java.binaries=./target/classes \
+        //           -Dsonar.projectKey=Rudra_Spring_Proj-generator \
+        //           -Dsonar.organization=rudra2912 '''
+        //       }
+        //     }
+        //}
+        stage ('Code Quality on cloud'){
             steps {
                 withSonarQubeEnv('rudra sonarcloud'){
                    sh ''' mvn clean verify sonar:sonar -Dsonar.projectName=Rudra_Spring_proj \
@@ -142,12 +152,12 @@ pipeline {
                 sh ' docker logout'
             }
         }
-        // stage('Docker Image Vulnerability Scan') { 
+        //stage('Docker Image Vulnerability Scan') { 
         //     steps {
         //         // this would be done by using SNYK
-        //         snykSecurity additionalArguments: '--docker ravishrawat/petclinic', snykInstallation: 'Snyk', snykTokenId: 'Snyk-Jenkins', targetFile: 'Dockerfile'
-        //     }
-        // }
+        //        snykSecurity additionalArguments: '--docker rudresh29/petclinic', failOnIssues: false, organisation: 'rudra2912', projectName: 'rudra spring', snykInstallation: 'synk', snykTokenId: 'rudra-synk-main', targetFile: 'Dockerfile'
+        //    }
+        //}
        
         stage ('DockerHub Push'){
             steps {
